@@ -1,30 +1,15 @@
-function multiplicar_campos(campo, mult, resultado) {
-  let id = document.getElementById(resultado);
-  let formula = campo * mult;
-  // console.log("gastos: " + formula);
-  return (id.innerText = "Total $: " + formula);
-}
-
-function total_gastos(
-  pasajes,
-  dias_pasaje,
-  comida,
-  dias_comida,
-  folletos,
-  dias_folletos,
-  semestre,
-  resultado
-) {
+function estado(pasajes, comida, folletos, semestre, resultado) {
   let id = document.getElementById(resultado);
 
-  var gastos_pasajes = pasajes * dias_pasaje;
-  var gastos_comida = comida * dias_comida;
-  var gastos_folletos = folletos * dias_folletos;
+  pasajes_numericos = Number.parseInt(pasajes);
+  comida_numerica = Number.parseInt(comida);
+  folletos_numerico = Number.parseInt(folletos);
+  semestre_numerico = Number.parseInt(semestre);
 
   var total_gastos =
-    gastos_pasajes + gastos_comida + gastos_folletos + semestre;
-  // console.log(total_gastos);
-  return (id.innerText = "Total del semestre $: " + total_gastos);
+    pasajes_numericos + comida_numerica + folletos_numerico + semestre_numerico;
+
+  return (id.innerHTML = "Gastos diarios $: " + total_gastos);
 }
 
 // calcular semestre
@@ -43,35 +28,15 @@ calcular.addEventListener("click", (e) => {
   // -------------------------- pasaje. ----------------------------
   var gastos_pasaje = document.getElementById("gastos_pasaje").value;
 
-  var gastos_pasaje_diario = document.getElementById(
-    "gastos_pasaje_diario"
-  ).value;
-
-  multiplicar_campos(
-    gastos_pasaje,
-    gastos_pasaje_diario,
-    "resultado_del_pasaje"
-  );
+  document.getElementById("pasaje_diario").innerHTML = gastos_pasaje;
 
   //---------------- gastos comida. ---------------
   var gasto_comida = document.getElementById("gasto_comida").value;
-
-  var gastos_comida_dia = document.getElementById("gastos_comida_dia").value;
-
-  multiplicar_campos(gasto_comida, gastos_comida_dia, "resultado_total_comida");
+  document.getElementById("comida").innerHTML = gasto_comida;
 
   // ---------------------- folletos ------------------------------.
   var gasto_folleto = document.getElementById("gasto_folleto").value;
-
-  var gastos_diarios_folletos = document.getElementById(
-    "gastos_diarios_folletos"
-  ).value;
-
-  multiplicar_campos(
-    gasto_folleto,
-    gastos_diarios_folletos,
-    "resultado_folleto"
-  );
+  document.getElementById("folleto").innerHTML = gasto_folleto;
 
   // ----------------------- pago del semestre. --------------------
   var gasto_semestre = document.getElementById("gasto_semestre").value;
@@ -79,26 +44,10 @@ calcular.addEventListener("click", (e) => {
   var gastos_diarios = (document.getElementById("gastos_diarios").innerHTML =
     gasto_semestre);
 
-  /*    
-  
-  pasajes,
-  dias_pasaje,
-  comida,
-  dias_comida,
-  folletos,
-  dias_folletos,
-  pago_semestre,
-  resultado
-  
-  */
-
-  total_gastos(
-    pasaje_diario,
-    gastos_pasaje_diario,
-    comida,
-    gastos_comida_dia,
+  estado(
+    gasto_comida,
     gasto_folleto,
-    gastos_diarios_folletos,
+    gastos_pasaje,
     gasto_semestre,
     "total_a_gastar"
   );
