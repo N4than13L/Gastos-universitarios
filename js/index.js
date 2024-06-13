@@ -1,13 +1,18 @@
-function estado(pasajes, comida, folletos, semestre, resultado) {
+function estado(pasajes, comida, folletos, semestre, presupuesto, resultado) {
   let id = document.getElementById(resultado);
 
-  pasajes_numericos = Number.parseInt(pasajes);
-  comida_numerica = Number.parseInt(comida);
-  folletos_numerico = Number.parseInt(folletos);
-  semestre_numerico = Number.parseInt(semestre);
+  var presupuesto_numerico = Number.parseInt(presupuesto);
+  var pasajes_numericos = Number.parseInt(pasajes);
+  var comida_numerica = Number.parseInt(comida);
+  var folletos_numerico = Number.parseInt(folletos);
+  var semestre_numerico = Number.parseInt(semestre);
 
   var total_gastos =
-    pasajes_numericos + comida_numerica + folletos_numerico + semestre_numerico;
+    pasajes_numericos +
+    comida_numerica +
+    folletos_numerico +
+    semestre_numerico -
+    presupuesto_numerico;
 
   return (id.innerHTML = "Gastos diarios $: " + total_gastos);
 }
@@ -49,6 +54,7 @@ calcular.addEventListener("click", (e) => {
     gasto_folleto,
     gastos_pasaje,
     gasto_semestre,
+    gasto_presupuesto,
     "total_a_gastar"
   );
 });
