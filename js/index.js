@@ -6,7 +6,8 @@ function estado(pasajes, comida, folletos, semestre, resultado) {
   folletos_numerico = Number.parseInt(folletos);
   semestre_numerico = Number.parseInt(semestre);
 
-  var total_gastos = pasajes_numericos + comida_numerica + folletos_numerico;
+  var total_gastos =
+    pasajes_numericos + comida_numerica + folletos_numerico + semestre_numerico;
 
   return (id.innerHTML = "Gastos diarios $: " + total_gastos);
 }
