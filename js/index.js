@@ -7,6 +7,17 @@ function estado(pasajes, comida, folletos, semestre, presupuesto, resultado) {
   var folletos_numerico = Number.parseInt(folletos);
   var semestre_numerico = Number.parseInt(semestre);
 
+  // salidar los semestres.
+  var semana = document.querySelector('input[name="semana"]:checked').value;
+  var mes = document.querySelector('input[name="mes"]:checked').value;
+  var semestre_gastos = document.querySelector(
+    'input[name="semestre"]:checked'
+  ).value;
+
+  var cuatrimestre = document.querySelector(
+    'input[name="cuatrimestre"]:checked'
+  ).value;
+
   var total_gastos =
     pasajes_numericos +
     comida_numerica +
