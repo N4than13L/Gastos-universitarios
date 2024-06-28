@@ -17,8 +17,8 @@ function estado(pasajes, comida, folletos, semestre, presupuesto, resultado) {
 
   var gastos_sin_semestre =
     pasajes_numericos + comida_numerica + folletos_numerico;
-  console.log(gastos_sin_semestre);
 
+  // console.log(gastos_sin_semestre);
   // console.log(total_gastos - presupuesto_numerico);
 
   return (id.innerHTML =
@@ -28,6 +28,11 @@ function estado(pasajes, comida, folletos, semestre, presupuesto, resultado) {
 
 // calcular semestre
 var calcular = document.getElementById("calcular");
+
+var limpar = document.getElementById("limpar");
+limpar.addEventListener("click", (e) => {
+  window.location.href = "/";
+});
 
 // funcion para calcular los gastos mendiante el click del mouse.
 calcular.addEventListener("click", (e) => {
