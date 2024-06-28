@@ -7,25 +7,23 @@ function estado(pasajes, comida, folletos, semestre, presupuesto, resultado) {
   var folletos_numerico = Number.parseInt(folletos);
   var semestre_numerico = Number.parseInt(semestre);
 
+  var gastos_sin_semestre = document.getElementById(
+    "gastos_sin_semestre"
+  ).value;
+
   // salidar los semestres.
-  var semana = document.querySelector('input[name="semana"]:checked').value;
-  var mes = document.querySelector('input[name="mes"]:checked').value;
-  var semestre_gastos = document.querySelector(
-    'input[name="semestre"]:checked'
-  ).value;
-
-  var cuatrimestre = document.querySelector(
-    'input[name="cuatrimestre"]:checked'
-  ).value;
-
   var total_gastos =
-    pasajes_numericos +
-    comida_numerica +
-    folletos_numerico +
-    semestre_numerico -
-    presupuesto_numerico;
+    pasajes_numericos + comida_numerica + folletos_numerico + semestre_numerico;
 
-  return (id.innerHTML = "Gastos diarios $: " + total_gastos);
+  var gastos_sin_semestre =
+    pasajes_numericos + comida_numerica + folletos_numerico;
+  console.log(gastos_sin_semestre);
+
+  // console.log(total_gastos - presupuesto_numerico);
+
+  return (id.innerHTML =
+    "Dinero restante o sobrante $: " +
+    Number.parseInt(total_gastos - presupuesto_numerico));
 }
 
 // calcular semestre
@@ -59,6 +57,16 @@ calcular.addEventListener("click", (e) => {
 
   var gastos_diarios = (document.getElementById("gastos_diarios").innerHTML =
     gasto_semestre);
+
+  var gastos_sin_semestre = document.getElementById("gastos_sin_semestre");
+
+  document.getElementById("presupuesto_inicial").innerText =
+    Number.parseInt(gasto_presupuesto);
+
+  gastos_sin_semestre.innerHTML =
+    Number.parseInt(gasto_semestre) +
+    Number.parseInt(gasto_folleto) +
+    Number.parseInt(gastos_pasaje);
 
   estado(
     gasto_comida,
